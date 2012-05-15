@@ -60,7 +60,7 @@ public class CollapsingSectionAnnotator extends ConsoleAnnotator<Object> {
         for (SectionDefinition section : sections) {
             Matcher m = section.getSectionStartPattern().matcher(text.getText().trim());
             if (m.matches()) {
-                text.addMarkup(0, "<div class=\"collapseHeader\">" + Util.escape(section.getSectionDisplayName(m)) + "<div class=\"collapseAction\"><p onClick=\"doToggle(this)\">Hide Details</p></div></div><div class=\"expanded\">");
+                text.addMarkup(0, "<div class=\"collapseHeader\" onClick=\"doToggle(this)\">" + Util.escape(section.getSectionDisplayName(m)) + "</div><div class=\"collapsed\">");
                 currentSections.push(section);
             }
         }
